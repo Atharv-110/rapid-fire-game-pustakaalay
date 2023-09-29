@@ -3,11 +3,18 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import Swal from "sweetalert2";
+
+// import Images
+import pauseBtn from "../assets/pause-btn.svg";
+import submitBtn from "../assets/submit-btn.svg";
 
 import gameData from "../assets/gameData";
 
 const Game = () => {
   const navigate = useNavigate();
+
+  const [isPlaying, setPlaying] = useState(true);
 
   const [player, setPlayer] = useState("Player");
   const [disableOne, setDisableOne] = useState(false);
@@ -57,11 +64,31 @@ const Game = () => {
     setDisableOne(false);
     setDisableTwo(false);
     setinputDisable(true);
-    setPlayer(null);
+    setPlayer("Player");
+  };
+
+  // Pause Function
+  const handlePause = () => {
+    // console.log("Pause");
+    setPlaying(false);
+    Swal.fire({
+      title: "Game Paused!",
+      iconHtml: '<i class="fa-solid fa-pause" style="color: #000000;"></i>',
+      allowOutsideClick: false,
+      showDenyButton: true,
+      confirmButtonText: "Resume",
+      denyButtonText: `Quit`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setPlaying(true);
+      } else {
+        navigate("/");
+      }
+    });
   };
 
   if (currentQuestion >= gameData.length) {
-    // navigate("/summary");
+    navigate("/summary");
     return (
       <div>
         <h1>Player 1 Score: {correctCountOne}</h1>
@@ -74,22 +101,29 @@ const Game = () => {
 
   return (
     <div className="game">
-      <CountdownCircleTimer
-        strokeLinecap={"round"}
-        size={60}
-        strokeWidth={4}
-        isPlaying={true}
-        duration={60}
-        trailColor="black"
-        colors="red"
-        onComplete={complete}
-      >
-        {({ remainingTime }) => (
-          <p className="game-timer-count">{remainingTime}</p>
-        )}
-      </CountdownCircleTimer>
-      <div className="">
-        <div className="game_container">
+      <div className="game-header">
+        <button onClick={handlePause} className="game-pause-btn">
+          <img src={pauseBtn} alt="pause-button-img" />
+        </button>
+        <div className="game-timer">
+          <CountdownCircleTimer
+            strokeLinecap={"round"}
+            size={60}
+            strokeWidth={5}
+            isPlaying={isPlaying}
+            duration={50}
+            trailColor="#fff"
+            colors="#f000f5"
+            onComplete={() => complete()}
+          >
+            {({ remainingTime }) => (
+              <h1 className="game-timer-count">{remainingTime}</h1>
+            )}
+          </CountdownCircleTimer>
+        </div>
+      </div>
+      <div className="game_container">
+        <div className="game_container_control">
           <button
             className="player_btn"
             disabled={disableOne}
@@ -97,7 +131,7 @@ const Game = () => {
           >
             Player 1
           </button>
-          <h1 className="">{currentQuestionObj.question}</h1>
+          <h1>{currentQuestionObj.question}</h1>
           <button
             className="player_btn"
             disabled={disableTwo}
@@ -123,7 +157,7 @@ const Game = () => {
         disabled={inputDisable}
         onClick={handleSubmit}
       >
-        Submit
+        <img src={submitBtn} alt="" />
       </button>
     </div>
   );
