@@ -1,4 +1,4 @@
-.App {
+/* .App {
   width: 100%;
   height: 100vh;
 }
@@ -85,4 +85,339 @@
   gap: 1rem;
   justify-content: center;
   align-items: center;
+} */
+
+:root {
+  /* --primary-green: #ddffe0;
+  --dark-green: #425f57;
+  --primary-purple: #ab59fd;*/
+  --primary-yellow: #efdd4b;
+  --primary-white: #fff;
+  --primary-pink: #f000f5;
+  --box-shadow: -5px -28px 100px 0px #c7e8ca inset,
+    0px -13px 10px 0px #5d9c59 inset,
+    20px 16px 10px 0px rgba(255, 249, 249, 0.3) inset,
+    11px 15px 15px 0px rgba(0, 0, 0, 0.25);
+  --transform-btn: scale(0.9);
+  --transition-btn: 500ms all ease-in-out;
 }
+
+/* Custom Background CSS starts */
+
+.App {
+  background-image: url("./assets/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.menu,
+.instruction,
+.level,
+.game,
+.summary {
+  width: 100%;
+  height: 100vh;
+}
+
+.game {
+  background-image: url(./assets/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Custom Background CSS ends */
+
+/* Menu Page CSS Start*/
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+}
+
+.menu-heading h1 {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 8rem;
+  letter-spacing: 8px;
+  color: var(--primary-yellow);
+  text-shadow: 8px 8px 8px var(--primary-pink);
+}
+
+.menu-btn {
+  width: 120px;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  transition: var(--transition-btn);
+}
+
+.menu-btn img {
+  width: 100%;
+}
+
+.menu-btn:hover {
+  transform: var(--transform-btn);
+}
+
+/* Menu Page CSS End*/
+
+/* Instruction Page CSS Starts */
+
+.instruction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.instruction-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 60%;
+  height: 500px;
+  background: var(--primary-white);
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  box-shadow: var(--box-shadow);
+}
+
+.instruction-heading {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 3rem;
+  letter-spacing: 4px;
+  color: var(--primary-yellow);
+  text-shadow: 3px 3px 3px var(--primary-pink);
+}
+
+.instruction-text-item {
+  width: 80%;
+  display: flex;
+  margin: 25px auto;
+}
+
+.instruction-text-item img {
+  width: 30px;
+  margin-right: 20px;
+}
+
+.instruction-text-item p {
+  text-align: justify;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.instruction-btn {
+  width: 150px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition-btn);
+}
+
+.instruction-btn img {
+  width: 100%;
+}
+
+.instruction-btn:hover {
+  transform: var(--transform-btn);
+}
+
+/* Instruction Page CSS Ends */
+
+/* Level Page CSS Starts */
+
+.level {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.level-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  height: 320px;
+  background: var(--primary-white);
+  padding: 2rem;
+  border: 3px solid var(--primary-pink);
+  border-radius: 50px;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 2rem;
+}
+
+.level-box .level-heading {
+  font-size: 1.6rem;
+  font-family: "Luckiest Guy", cursive;
+  color: var(--primary-yellow);
+  text-shadow: 3px 3px var(--primary-pink);
+  letter-spacing: 3px;
+  margin-bottom: 2.5rem;
+}
+
+.level .level-box .radio-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+
+.level .level-box .radio-item label {
+  font-size: 2rem;
+  font-family: "Luckiest Guy", cursive;
+  letter-spacing: 3px;
+  color: gray;
+  text-shadow: 0.5px 0.5px 1px gray;
+}
+
+.level .level-box .radio-item input {
+  appearance: none;
+  border: 3px solid gray;
+  background-color: gray;
+  width: 40px;
+  height: 40px;
+  border-radius: 17px;
+}
+
+.level .level-box .radio-item input:checked {
+  background-image: url("./assets/radio-btn.svg");
+  background-size: 37px 37px;
+  background-repeat: no-repeat;
+}
+
+.level .level-btn {
+  width: 160px;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: var(--transition-btn);
+}
+
+.level .level-btn:hover {
+  transform: var(--transform-btn);
+}
+
+.level .level-btn img {
+  width: 100%;
+}
+
+/* Level Page CSS Ends */
+
+/* Summary Page CSS Starts */
+
+.summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.summary-box {
+  width: 450px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: var(--primary-white);
+  padding: 2rem;
+  border: 4px solid var(--primary-pink);
+  border-radius: 50px;
+  box-shadow: var(--box-shadow);
+}
+
+.summary-box .summary-heading {
+  font-size: 2.8rem;
+  font-family: "Luckiest Guy", cursive;
+  letter-spacing: 4px;
+  color: var(--primary-yellow);
+  text-shadow: 2px 2px var(--primary-pink);
+  /* height: 30px; */
+}
+
+.summary-box .summary-star {
+  width: 250px;
+}
+
+.summary-box .summary-level {
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: gray;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.summary-box .summary-score-box {
+  width: 170px;
+  background: #d9d9d9;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  border-radius: 20px;
+  padding: 15px 0;
+}
+
+.summary-box .summary-score-box h3 {
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #030303;
+}
+
+.summary-box .summary-score-subtitle {
+  margin-top: 5px;
+  margin-bottom: 2px;
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: gray;
+  text-transform: uppercase;
+}
+
+.summary-btn button {
+  width: 65px;
+  margin: 10px;
+  /* height: 70px; */
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-btn);
+  background: none;
+}
+
+.summary-btn button:hover {
+  transform: var(--transform-btn);
+}
+
+.summary-btn img {
+  width: 100%;
+}
+/* Summary Page CSS Ends */
+
+/* Tablet Styles Start */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Menu CSS for Tablet Starts */
+  .menu-heading h1 {
+    font-size: 6rem;
+  }
+  /* Menu CSS for Tablet Ends */
+
+  /* Instruction CSS for Tablet Starts */
+  .instruction-box {
+    width: 85%;
+  }
+  .instruction-text-item {
+    width: 95%;
+  }
+  /* Instruction CSS for Tablet Ends */
+}
+
+/* Tablet Styles End */
