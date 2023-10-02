@@ -51,6 +51,16 @@ const Game = () => {
     const correctAnswer = gameData[currentQuestion].answer;
     const answerIsCorrect = userAnswer === correctAnswer;
     if (answerIsCorrect) {
+      setPlaying(false);
+      Swal.fire({
+        allowOutsideClick: false,
+        icon: "success",
+        title: "Right Answer",
+        timer: 1500,
+        showConfirmButton: false,
+      }).then(() => {
+        setPlaying(true);
+      });
       if (player === "Player 1") {
         setCorrectCountOne(correctCountOne + 1);
         console.log("Player 1 Answer is Correct");
@@ -58,6 +68,17 @@ const Game = () => {
         setCorrectCountTwo(correctCountTwo + 1);
         console.log("Player 2 Answer is Correct");
       }
+    } else {
+      setPlaying(false);
+      Swal.fire({
+        allowOutsideClick: false,
+        icon: "error",
+        title: "Wrong",
+        timer: 1500,
+        showConfirmButton: false,
+      }).then(() => {
+        setPlaying(true);
+      });
     }
     setCurrentQuestion(currentQuestion + 1);
     setUserAnswer("");
@@ -111,6 +132,7 @@ const Game = () => {
             size={60}
             strokeWidth={5}
             isPlaying={isPlaying}
+            // isPlaying={false}
             duration={50}
             trailColor="#fff"
             colors="#f000f5"
